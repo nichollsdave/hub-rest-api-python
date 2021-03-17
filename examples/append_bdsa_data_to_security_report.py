@@ -85,12 +85,10 @@ def handle_security_report(csvfile):
                     logging.debug(f"No BDSA Record")
                     row.append(row[0])
                     all.append(row)
-
+            
+            # Write the report file.
             logging.info(f"Writing output csv file [{file_to_create}]")
             writer.writerows(all)
-                
-    # Write the report file.
-    return None
 
 def parse_bdsa_id(record):
     # Cell value could be a BDSA id, CVE id or both e.g. BDSA-2020-1128 (CVE-2020-1945)
